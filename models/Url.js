@@ -21,3 +21,8 @@ const ShortUrlSchema = new Schema({
 const ShortUrl = mongoose.model('shortUrl', ShortUrlSchema)
 
 module.exports = ShortUrl
+
+
+
+
+
