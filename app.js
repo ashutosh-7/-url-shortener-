@@ -4,6 +4,7 @@ const rootDir = require('./util/path.js');
 const bodyParser =require('body-parser');
 const errorControllers = require('./controllers/error');
 const mongoose = require('mongoose');
+const indexRoutes=require('./routes/index');
 // const MongoDBStore = require('connect-mongodb-session')(session);
 
 const app=express();
@@ -44,6 +45,7 @@ app.set('views','views');
 //     next();
 //   });
 
+app.use(indexRoutes);
   
 app.use(errorControllers.get404);
 
