@@ -7,6 +7,8 @@ const shortId=require('shortid');
 const createHttpError = require('http-errors')
 const mongoose = require('mongoose');
 const indexRoutes=require('./routes/index');
+const urlGenerate=require('./routes/url-generate');
+const ShortUrl = require('./models/Url');
 
 const app=express();
 
@@ -18,7 +20,10 @@ app.set('views','views');
 
 //Db connection
 const MONGODB_URI=require('./config/keys').MongoURI; //db keys
-mongoose.connect(MONGODB_URI,{useNewUrlParser:true})
+mongoose.connect(MONGODB_URI,{
+    useNewUrlParser:true,
+    useUnifiedTopology: true, //depreciation warning ata hai agar ese nhi lagayenge toh
+    useCreateIndex: true,})
 .then(()=>{
     console.log("Database Connection established");
 })
@@ -38,6 +43,7 @@ mongoose.connect(MONGODB_URI,{useNewUrlParser:true})
 //   });
 
 app.use(indexRoutes);
+app.use(urlGenerate);
   
 app.use(errorControllers.get404);
 
