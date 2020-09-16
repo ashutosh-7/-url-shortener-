@@ -8,6 +8,7 @@ const createHttpError = require('http-errors')
 const mongoose = require('mongoose');
 const indexRoutes=require('./routes/index');
 const urlGenerate=require('./routes/url-generate');
+const otherRoutes=require('./routes/otherRoutes');
 const ShortUrl = require('./models/Url');
 
 const app=express();
@@ -44,6 +45,7 @@ mongoose.connect(MONGODB_URI,{
 
 app.use(indexRoutes);
 app.use(urlGenerate);
+app.use(otherRoutes);
   
 app.use(errorControllers.get404);
 

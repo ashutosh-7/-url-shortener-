@@ -21,10 +21,14 @@ exports.postURL = (req,res,next) => {
     }
    Url.findOne({url:url})
    .then(urlExist=>{
-       console.log(urlExist);
        if(urlExist)
        {
-        return res.redirect('/');
+        let sendUrl=`http://localhost:3000/${urlExist.shortId}`;
+       return res.render('index',{
+            pageTitle:'Url Shortener',
+            generatedUrl:sendUrl
+        });
+
        }
        const shortUrl=shortId.generate();
        const newUrl=Url ({
@@ -49,4 +53,17 @@ exports.postURL = (req,res,next) => {
     console.log(err);
     res.redirect('/');
    });
+}
+
+
+exports.linkVisit = (req,res,next) => {
+
+    const shortIdParam=req.params.shortId;
+    Url.findOne({shortId:shortIdParam})
+    .then(result=>{
+        res.redirect(result.url);
+    })
+    .catch(err=>{
+        res.render('404');
+    });
 }
