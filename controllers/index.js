@@ -5,3 +5,6 @@ exports.getHome = (req,res,next) => {
         pageTitle:'Home',
     });
 }
+exports.postURL = (req,res,next) => {
+   res.send();
+}
