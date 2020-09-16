@@ -4,7 +4,7 @@ It is a URL shortening service built in NodeJS and MongoDB. It is a URL shorteni
 
 # Live Running on - http://13.126.144.205:3000/
 <img width="964" alt="pic 1" src="https://raw.githubusercontent.com/ashutosh-7/url-shortener/master/images/Screenshot%20from%202020-09-16%2020-55-50.png">
-<img width="964" alt="pic 2" src="https://raw.githubusercontent.com/ashutosh-7/url-shortener/master/images/Screenshot%20from%202020-09-16%2020-56-20.png">
+<img width="964" alt="pic 2" src="https://raw.githubusercontent.com/ashutosh-7/url-shortener/master/images/Screenshot%20from%202020-09-16%2021-56-29.png">
 
 
 # Run Locally
